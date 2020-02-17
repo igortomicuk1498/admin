@@ -1,0 +1,55 @@
+.notes-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  min-height: 300px;
+  position: relative;
+
+  &__number {
+    flex: 0 0 3%;
+    text-align: center;
+    line-height: 60px;
+  }
+
+  &__thumb {
+    display: flex;
+    align-items: center;
+    flex: 0 0 70px;
+    padding: 0 10px;
+
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+
+  &__title {
+    flex: 1 1 45%;
+  }
+
+  &__date {
+    margin-right: 20px;
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 5px 25px;
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ebebeb;
+    }
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255,255,255, .7);
+  }
+}

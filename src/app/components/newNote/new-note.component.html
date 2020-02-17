@@ -1,0 +1,55 @@
+<div class="container">
+
+  <div class="section-title">
+    <h1 *ngIf="!noteId">Створити нову нотатку</h1>
+    <h1 *ngIf="noteId">Редагувати нотатку</h1>
+    <a routerLink="/" mat-raised-button color="primary"><mat-icon>list</mat-icon> Список нотаток</a>
+  </div>
+
+  <div class="white-container new-note">
+    <form [formGroup]="newNoteForm" novalidate (ngSubmit)="submit()" class="new-note__form">
+      <mat-form-field>
+        <input matInput name="title" formControlName="noteTitle" placeholder="Заголовок">
+      </mat-form-field>
+
+      <div class="new-note__upload">
+        <label for="thumb" class="new-note__upload-label">
+          <div *ngIf="!preview">
+            <span>Виберіть фото</span>
+            <mat-icon>add_photo_alternate</mat-icon>
+          </div>
+
+          <img *ngIf="preview" src="{{this.preview}}" alt="">
+          <div *ngIf="selectedFile" class="new-note__selected-img">
+            <mat-icon class="new-note__selected-icon">done</mat-icon>
+            Вибрано &nbsp;<span>{{selectedFile.name}}</span>
+          </div>
+        </label>
+        <input #imageInput
+               type="file"
+               id="thumb"
+               name="thumb"
+               class="no_display"
+               (change)="uploadFile($event)"
+               accept="image/*">
+        <span color="warn" *ngIf="newNoteForm.controls['noteThumb'].invalid && newNoteForm.controls['noteThumb'].touched">Виберіть картинку</span>
+      </div>
+
+      <mat-form-field>
+        <textarea matInput name="text" formControlName="noteText" placeholder="Текст"></textarea>
+      </mat-form-field>
+
+      <div class="new-note__loading" *ngIf="formLoading">
+        <mat-progress-spinner
+          [color]="progressSpinner.color"
+          [mode]="progressSpinner.mode">
+        </mat-progress-spinner>
+      </div>
+
+      <div class="new-note__submit">
+        <button type="submit" mat-raised-button [disabled]="newNoteForm.invalid || formLoading" color="primary"><mat-icon>done</mat-icon>Зберегти</button>
+      </div>
+    </form>
+  </div>
+</div>
+

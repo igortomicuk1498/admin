@@ -1,0 +1,88 @@
+.new-note {
+  position: relative;
+
+  &__form {
+    padding: 0 30px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__upload {
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
+  }
+
+  &__upload-label {
+    position: relative;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100px;
+    background: #fafafa;
+    border: 2px dotted #e1e1e1;
+    cursor: pointer;
+    padding: 10px;
+    transition: all .5s;
+
+    &::before {
+      content: '+';
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 35px;
+      color: #fff;
+      transition: all .5s;
+      position: absolute;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      background: rgba(103, 58, 183, .2);
+      visibility: hidden;
+      opacity: 0;
+    }
+
+    &:hover {
+      border-color: #673ab7;
+      &::before {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+  }
+
+  &__selected-img {
+    display: flex;
+    align-items: center;
+  }
+
+  &__selected-icon {
+    color: #00b331;
+  }
+
+  &__loading {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255, .7);
+  }
+
+}
+
+.ng-valid {
+  border-color: #00b331;
+}

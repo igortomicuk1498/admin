@@ -1,0 +1,42 @@
+/* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+h1,h2,h3,h4,h5,h6,ul,p,ol {
+  margin: 0;
+  padding: 0;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: #e9e8e8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  margin-bottom: 40px;
+}
+
+.white-container {
+  background: #fefefe;
+  padding: 20px 0;
+  border: 1px solid #dedddd;
+}
+
+.row {
+  display: flex;
+}
+
+.section-title {
+  padding: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.no_display {
+  display: none!important;
+}
+
+@import "components/notes-list";
+@import "components/new-note";
